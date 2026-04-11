@@ -119,3 +119,42 @@ La base de donnees RDS reste isolee dans le subnet prive, accessible uniquement 
 **Decardo Koumous Wouile (AnimusK7)**
 Cloud & DevOps Enthusiast | Tunis, Tunisia
 [GitHub](https://github.com/AnimusKWD)
+
+
+---
+
+## 🔄 Evolution du projet — Pourquoi pas de CI/CD pour l'instant ?
+
+> Ce projet a été volontairement réalisé en **déploiement 100% manuel** via la console AWS.
+>
+> **Pourquoi ce choix ?**
+> L'objectif principal de ce portfolio est de démontrer une **maîtrise complète et approfondie des services AWS** :
+> comprendre chaque composant (VPC, EC2, RDS, ALB, Security Groups) en le configurant à la main,
+> sans abstractions automatisées. C'est ce qui prouve la compétence réelle sur le cloud.
+
+### Phase 1 — Déploiement manuel ✅ (état actuel)
+
+- Configuration manuelle de l'ensemble de l'infrastructure AWS
+- Objectif : comprendre et maîtriser chaque couche de l'architecture
+- Aucun outil d'automatisation (pas de Terraform, pas de CI/CD)
+
+### Phase 2 — Automatisation avec CI/CD 🚧 (à venir)
+
+- Ajout d'un pipeline **GitHub Actions** dans `.github/workflows/`
+- Déploiement automatique du code sur EC2 à chaque `git push` sur `main`
+- Intégration de tests et de validations avant déploiement
+- Objectif : montrer la progression vers une approche **DevOps complète**
+
+### Phase 3 — Infrastructure as Code 📋 (prévu)
+
+- Migration de la configuration manuelle vers **Terraform**
+- Tout l'environnement AWS décrit en code, versionné et reproductible
+- Objectif : démontrer des compétences **Cloud + DevOps** de bout en bout
+
+> 💡 **Note pour les recruteurs et visiteurs :**
+> Le dossier `.github/workflows` n'existe pas encore intentionnellement.
+> Il sera ajouté lors de la Phase 2. Ce README documente l'évolution
+> progressive et réfléchie de ce projet, de l'infrastructure manuelle
+> vers une automatisation complète.
+
+---
