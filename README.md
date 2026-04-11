@@ -10,7 +10,7 @@ Tout est configuré manuellement via la console AWS, sans outil d'infrastructure
 
 ## 🧱 Architecture
 
-![Architecture](architecture.png)
+![Architecture]Architecture.jpeg)
 
 L'architecture repose sur un VPC isolé avec des subnets publics et privés, un Load Balancer exposé sur Internet, des instances EC2 en backend, et une base de données RDS MySQL entièrement isolée du trafic public.
 
