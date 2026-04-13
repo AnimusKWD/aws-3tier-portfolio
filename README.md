@@ -8,13 +8,27 @@ Tout est configuré manuellement via la console AWS, sans outil d'infrastructure
 
 ---
 
-## 🧱 Architecture
+## 🌐 Application en ligne — Lien public
 
-![Architecture(Architecture.jpeg)
-
-L'architecture repose sur un VPC isolé avec des subnets publics et privés, un Load Balancer exposé sur Internet, des instances EC2 en backend, et une base de données RDS MySQL entièrement isolée du trafic public.
+> **✅ L'application est déployée et accessible publiquement :**
+>
+> ### 👉 [http://deotech-alb-818502760.eu-west-3.elb.amazonaws.com](http://deotech-alb-818502760.eu-west-3.elb.amazonaws.com)
 
 ---
+
+## 📸 Preuve de fonctionnement
+
+![Application deployed and connected to RDS MySQL](screenshots/app-deployed.png)
+
+> La capture ci-dessus montre l'application **AWS 3-Tier Architecture** accessible via l'ALB public, avec le message **"Database : Connected to RDS MySQL"** confirmant la connexion réussie entre l'EC2 et la base de données RDS en subnet privé.
+
+---
+
+## 🧱 Architecture
+
+![Architecture](Architecture.jpeg)
+
+L'architecture repose sur un VPC isolé avec des subnets publics et privés, un Load Balancer exposé sur Internet, des instances EC2 en backend, et une base de données RDS MySQL entièrement isolée du trafic public.
 
 ## 🗂️ Structure du projet
 
@@ -27,11 +41,12 @@ aws-3tier-portfolio/
 |-- scripts/
 |   |-- install.sh
 |
+|-- screenshots/
+|   |-- app-deployed.png
+|
+|-- Architecture.jpeg
 |-- README.md
-|-- architecture.png
 ```
-
----
 
 ## ☁️ Composants AWS
 
@@ -45,28 +60,30 @@ aws-3tier-portfolio/
 | RDS MySQL | Base de donnees en subnet prive |
 | Security Groups | Controle des flux reseau entre chaque composant |
 
----
-
 ## ⚙️ Etapes de deploiement
 
 ### 1. VPC et sous-reseaux
+
 - Creer un VPC avec CIDR `10.0.0.0/16`
 - Subnets :
   - **Public** : `10.0.1.0/24` pour l'ALB
   - **Prive** : `10.0.2.0/24` pour RDS
 
 ### 2. Connectivite reseau
+
 - Attacher une **Internet Gateway** au VPC
 - Creer une **NAT Gateway** dans le subnet public
 - Configurer les **tables de routage**
 
 ### 3. Security Groups
+
 - **SG-ALB** : port 80 depuis Internet
 - **SG-EC2** : port 80 depuis SG-ALB uniquement
 - **SG-RDS** : port 3306 depuis SG-EC2 uniquement
 
 ### 4. EC2
-- Instance Amazon Linux 2 dans le subnet public
+
+- Instance Ubuntu dans le subnet public
 - Installation Apache + PHP :
 
 ```bash
@@ -80,28 +97,29 @@ sudo cp app/index.php /var/www/html/index.php
 ```
 
 ### 5. RDS MySQL
+
 - Instance RDS MySQL dans le subnet prive
 - Acces public desactive
 - Associer SG-RDS
+- Base de donnees `appdb` creee manuellement
 
 ### 6. Application Load Balancer
+
 - ALB dans les subnets publics
 - Target Group pointant vers EC2
 - Listener sur le port 80
-
----
 
 ## 🎯 Resultat
 
 L'application est accessible via :
 
 ```
-http://<ALB-DNS-Name>
+http://deotech-alb-818502760.eu-west-3.elb.amazonaws.com
 ```
 
-La base de donnees RDS reste isolee dans le subnet prive, accessible uniquement depuis EC2.
+**Statut base de donnees** : ✅ Connected to RDS MySQL
 
----
+La base de donnees RDS reste isolee dans le subnet prive, accessible uniquement depuis EC2.
 
 ## 💼 Competences demontrees
 
@@ -111,8 +129,7 @@ La base de donnees RDS reste isolee dans le subnet prive, accessible uniquement 
 - Configuration d'une base de donnees RDS MySQL managee
 - Mise en place d'un Application Load Balancer
 - Securisation d'une architecture multi-tiers sur AWS
-
----
+- Connexion inter-services securisee (EC2 → RDS)
 
 ## 👤 Auteur
 
@@ -120,17 +137,11 @@ La base de donnees RDS reste isolee dans le subnet prive, accessible uniquement 
 Cloud & DevOps Enthusiast | Tunis, Tunisia
 [GitHub](https://github.com/AnimusKWD)
 
-
----
-
 ## 🔄 Evolution du projet — Pourquoi pas de CI/CD pour l'instant ?
 
 > Ce projet a été volontairement réalisé en **déploiement 100% manuel** via la console AWS.
 >
-> **Pourquoi ce choix ?**
-> L'objectif principal de ce portfolio est de démontrer une **maîtrise complète et approfondie des services AWS** :
-> comprendre chaque composant (VPC, EC2, RDS, ALB, Security Groups) en le configurant à la main,
-> sans abstractions automatisées. C'est ce qui prouve la compétence réelle sur le cloud.
+> **Pourquoi ce choix ?** L'objectif principal de ce portfolio est de démontrer une **maîtrise complète et approfondie des services AWS** : comprendre chaque composant (VPC, EC2, RDS, ALB, Security Groups) en le configurant à la main, sans abstractions automatisées. C'est ce qui prouve la compétence réelle sur le cloud.
 
 ### Phase 1 — Déploiement manuel ✅ (état actuel)
 
@@ -151,10 +162,4 @@ Cloud & DevOps Enthusiast | Tunis, Tunisia
 - Tout l'environnement AWS décrit en code, versionné et reproductible
 - Objectif : démontrer des compétences **Cloud + DevOps** de bout en bout
 
-> 💡 **Note pour les recruteurs et visiteurs :**
-> Le dossier `.github/workflows` n'existe pas encore intentionnellement.
-> Il sera ajouté lors de la Phase 2. Ce README documente l'évolution
-> progressive et réfléchie de ce projet, de l'infrastructure manuelle
-> vers une automatisation complète.
-
----
+> 💡 **Note pour les recruteurs et visiteurs :** Le dossier `.github/workflows` n'existe pas encore intentionnellement. Il sera ajouté lors de la Phase 2. Ce README documente l'évolution progressive et réfléchie de ce projet, de l'infrastructure manuelle vers une automatisation complète.
