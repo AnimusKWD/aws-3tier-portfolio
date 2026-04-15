@@ -114,7 +114,7 @@ try {
         <div class="card">
             <div class="card-icon">&#x1F5A5;</div>
             <div class="card-title">EC2</div>
-            <div class="card-desc">Amazon Linux 2<br>Apache + PHP</div>
+            <div class="card-desc">Ubuntu 24.04 LTS<br>Apache + PHP | CI/CD GitHub Actions ✅ | CI/CD GitHub Actions ✅</div>
         </div>
         <div class="card">
             <div class="card-icon">&#x1F4C0;</div>
