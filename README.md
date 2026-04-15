@@ -1,4 +1,5 @@
 # AWS 3-Tier Architecture Project 🚀
+<!-- Phase 2 CI/CD - GitHub Actions Pipeline activé -->
 
 ## 📌 Description
 
