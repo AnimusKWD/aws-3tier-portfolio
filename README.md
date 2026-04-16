@@ -1,7 +1,7 @@
 # 🚀 AWS 3-Tier Architecture — Portfolio Project
 
 > **Decardo Koumous Wouile** · Ingénieur Cloud Computing, Virtualisation & Automatisation  
-> 📍 Tunis, Tunisie · [LinkedIn](https://www.linkedin.com/in/decardo-koumous-wouile/) · [🌐 Application en ligne](http://deotech-alb-818502760.eu-west-3.elb.amazonaws.com/)
+> 📍 Tunis, Tunisie · [LinkedIn](https://www.linkedin.com/in/decardo-koumous-wouile/) · [🌐 Application en ligne](http://deotech-alb-818502760.eu-west-3.elb.amazonaws.com/) · [![WhatsApp](https://img.shields.io/badge/WhatsApp-Contact-25D366?style=flat&logo=whatsapp&logoColor=white)](https://wa.me/21626885727)
 
 ---
 
@@ -171,6 +171,7 @@ Ingénieur Cloud Computing, Virtualisation & Automatisation
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/decardo-koumous-wouile/)
 [![GitHub](https://img.shields.io/badge/GitHub-AnimusKWD-black?style=flat&logo=github)](https://github.com/AnimusKWD)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-Contact-25D366?style=flat&logo=whatsapp&logoColor=white)](https://wa.me/21626885727)
 
 ---
 
