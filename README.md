@@ -33,31 +33,9 @@ Ce projet illustre une migration réelle : **VPS → Cloud AWS**, avec mise en p
 
 ## 🏗️ Architecture AWS
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    VPC (10.0.0.0/16)                        │
-│                    Region: eu-west-3                        │
-│                                                             │
-│  ┌──────────────┐         ┌──────────────────────────────┐  │
-│  │  Public       │         │  Internet Gateway            │  │
-│  │  Subnet       │◄───────►│  ALB (Application LB)        │  │
-│  │  (Web Tier)   │         └──────────────────────────────┘  │
-│  └──────┬───────┘                                            │
-│         │                                                   │
-│  ┌──────▼───────┐                                           │
-│  │  Private      │                                          │
-│  │  Subnet       │  EC2 Instances (App Tier)                │
-│  │  (App Tier)   │                                          │
-│  └──────┬───────┘                                           │
-│         │                                                   │
-│  ┌──────▼───────┐                                           │
-│  │  Private      │                                          │
-│  │  Subnet       │  RDS MySQL (Data Tier)                   │
-│  │  (Data Tier)  │                                          │
-│  └──────────────┘                                           │
-└─────────────────────────────────────────────────────────────┘
-```
+![AWS 3-Tier Architecture](./Architecture.jpeg)
 
+> *Diagramme de l'architecture AWS 3-Tier — VPC (10.0.0.0/16), Region eu-west-3 | Internet → ALB → EC2 (Web Tier) → EC2 (App Tier) → RDS MySQL (Data Tier)*
 ---
 
 ## 🛠️ Stack Technique
