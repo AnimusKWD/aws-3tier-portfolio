@@ -154,3 +154,44 @@ Ingénieur Cloud Computing, Virtualisation & Automatisation
 ---
 
 *Projet réalisé dans le cadre du développement de mon portfolio Cloud & DevOps — 2025*
+
+---
+
+## Phase 3 — Infrastructure as Code (Terraform)
+
+[![Terraform](https://img.shields.io/badge/Terraform-1.5.7-7B42BC?style=flat&logo=terraform)](https://www.terraform.io/)
+[![AWS Provider](https://img.shields.io/badge/AWS_Provider-~>5.0-FF9900?style=flat&logo=amazon-aws)](https://registry.terraform.io/providers/hashicorp/aws/latest)
+[![IaC](https://img.shields.io/badge/IaC-Terraform-blue?style=flat)](terraform/)
+
+### Ressources provisionnées via Terraform
+
+| Ressource | Description | Statut |
+|-----------|-------------|--------|
+| `aws_lb` | Application Load Balancer public | ✅ |
+| `aws_lb_listener` (HTTP) | Redirect 301 HTTP → HTTPS | ✅ |
+| `aws_lb_listener` (HTTPS) | TLS 1.3 avec certificat ACM | ✅ |
+| `aws_lb_target_group` | Health Check sur `/health.php` | ✅ |
+| `aws_launch_template` | EC2 Amazon Linux 2023 + Apache + PHP | ✅ |
+| `aws_autoscaling_group` | ASG min=1 / desired=2 / max=4 | ✅ |
+| `aws_autoscaling_policy` | Scale-up (+1) et Scale-down (-1) | ✅ |
+| `aws_route53_record` | Alias A pour `deotech.online` + `www` | ✅ |
+| `aws_sns_topic` | Alertes email via SNS | ✅ |
+| `aws_cloudwatch_metric_alarm` | CPU, UnhealthyHosts, 5xx ALB | ✅ |
+| `aws_security_group` | SG ALB (public) + SG EC2 (ALB only) | ✅ |
+
+### Structure Terraform
+```
+terraform/
+├── versions.tf   # Provider AWS ~> 5.0, backend S3
+├── variables.tf  # Variables : region, VPC, ASG, ALB, SNS...
+├── main.tf       # Toutes les ressources AWS
+├── outputs.tf    # DNS ALB, URLs, ARN, résumé déploiement
+└── README.md     # Documentation Terraform
+```
+
+### Workflow CI/CD Terraform (GitHub Actions)
+
+- **Pull Request** → `terraform fmt` + `terraform validate` + `terraform plan` (commenté sur la PR)
+- **Push sur `main`** → `terraform apply` automatique en production
+
+> Voir [terraform/README.md](terraform/README.md) pour les instructions de déploiement complètes.
