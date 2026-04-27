@@ -5,10 +5,10 @@
 // =============================================================
 
 // Configuration de la connexion RDS
-$db_host = getenv('DB_HOST') ?: 'your-rds-endpoint.amazonaws.com';
+$db_host = getenv('DB_HOST') ?: 'deotech-rds-mysql.ch0w4wo8id53.eu-west-3.rds.amazonaws.com';
 $db_name = getenv('DB_NAME') ?: 'appdb';
 $db_user = getenv('DB_USER') ?: 'admin';
-$db_pass = getenv('DB_PASS') ?: 'your-password';
+$db_pass = getenv('DB_PASS') ?: 'YOUR_RDS_PASSWORD';
 
 // Tentative de connexion a RDS
 $conn = null;
