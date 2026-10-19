@@ -1,7 +1,7 @@
 # =============================================================
 # main.tf — Ressources principales Terraform
 # Projet : AWS 3-Tier Architecture — DeoTech
-# Auteur : Decardo Koumous Wouile (Henock Nsakala)
+# Auteur : Decardo Koumous Wouile
 # Date   : Avril 2026
 # =============================================================
 # Ressources : ALB, Listeners, Target Group, ASG,
