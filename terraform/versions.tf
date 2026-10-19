@@ -1,7 +1,7 @@
 # =============================================================
 # versions.tf — Terraform & Provider Versions
 # Projet : AWS 3-Tier Architecture — DeoTech
-# Auteur : Decardo Koumous Wouile (Henock Nsakala)
+# Auteur : Decardo Koumous Wouile
 # Date   : Avril 2026
 # =============================================================
 
