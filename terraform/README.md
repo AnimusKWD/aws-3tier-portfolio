@@ -1,6 +1,6 @@
 # Terraform — AWS 3-Tier Architecture (Phase 3)
 
-> **Auteur** : Decardo Koumous Wouile (Henock Nsakala)  
+> **Auteur** : Decardo Koumous Wouile  
 > **Projet** : aws-3tier-portfolio  
 > **Date** : Avril 2026  
 > **Region AWS** : `eu-west-3` (Paris)
